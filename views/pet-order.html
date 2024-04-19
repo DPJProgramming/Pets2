@@ -3,19 +3,19 @@
 <body>
     <h1>Order a Pet</h1>
 
-    <form action="#" method="post">
+    <form action="#" method="post" name="pet">
         <label for="type"> What kind of pet would you like?</label>
-        <input type="text" id="type">
+        <input type="text" id="type" name="pet">
         <br>
 
         <label for="color"> Select a color</label>
-        <select id="color">
+        <select id="color" name="color">
             <option> Red </option>
             <option> Yellow </option>
             <option> Blue </option>
         </select>
 
-        <a class="d-flex justify-content-center btn btn-success" href="place-order">Place Order</a>
+        <input type="submit" class="d-flex justify-content-center btn btn-success" name="submit-order">
     </form>
 
 </body>

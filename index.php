@@ -1,5 +1,5 @@
 <?php
-// This is controller
+session_start();
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -21,7 +21,29 @@ $f3->route('GET /', function(){
 });
 
 //order
-$f3->route('GET|POST /order', function(){
+$f3->route('GET|POST /order', function($f3){
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        //Validate the data
+        if (empty($_POST['pet'])) {
+            echo "Please supply a pet type";
+        }
+        else{
+            $pet = $_POST['pet'];
+            $f3->set('SESSION.pet', $pet);
+        }
+
+        if (empty($_POST['color'])) {
+            echo "Please supply a pet type";
+        }
+        else{
+            $color = $_POST['color'];
+            $f3->set('SESSION.color', $color);
+        }
+
+    }
+
     $view = new Template();
     echo $view->render('views/pet-order.html');
 });
