@@ -41,9 +41,15 @@ $f3->route('GET|POST /order', function($f3){
             $color = $_POST['color'];
             $f3->set('SESSION.color', $color);
         }
-
+        $f3->reroute("summary");
     }
 
+    $view = new Template();
+    echo $view->render('views/pet-order.html');
+});
+
+$f3->route('GET /summary', function(){
+    //render view page
     $view = new Template();
     echo $view->render('views/order-summary.html');
 });
