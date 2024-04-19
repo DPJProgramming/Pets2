@@ -45,7 +45,7 @@ $f3->route('GET|POST /order', function($f3){
     }
 
     $view = new Template();
-    echo $view->render('views/pet-order.html');
+    echo $view->render('views/order-summary.html');
 });
 
 //run fat free
